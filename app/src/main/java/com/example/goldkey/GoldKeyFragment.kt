@@ -25,6 +25,8 @@ class GoldKeyFragment : Fragment() {
         // Inflate the layout for this fragment
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gold_key, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = goldKeyViewModel
 
 
         return binding.root
