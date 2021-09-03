@@ -20,17 +20,18 @@ import org.w3c.dom.Text
 //        view.visibility = INVISIBLE
 //}
 //
-//@BindingAdapter("app:visibilityToggle")
-//fun changeVisiblityForTextView(view: TextView, toggle: Boolean){
-//    if(!toggle)
-//        view.visibility = VISIBLE
-//    else
-//        view.visibility = INVISIBLE
-//}
+@BindingAdapter("app:visibilityToggle")
+fun changeVisiblityForTextView(view: TextView, toggle: Boolean){
+    if(toggle)
+        view.visibility = VISIBLE
+    else
+        view.visibility = INVISIBLE
+}
 
 @BindingAdapter(value = ["app:visibilityToggle","android:flag"], requireAll =true)
 fun changeVisiblityForConstraintLayout(view: ConstraintLayout, toggle: Boolean, flag:Boolean){
 
+    //flag가 true일 때 back side
     if(flag) {
         if (toggle)
             view.visibility = VISIBLE

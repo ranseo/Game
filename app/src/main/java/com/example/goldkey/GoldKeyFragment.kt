@@ -15,6 +15,8 @@ import com.example.goldkey.databinding.FragmentGoldKeyBinding
 class GoldKeyFragment : Fragment() {
 
     private lateinit var binding : FragmentGoldKeyBinding
+    private val anim by lazy {AnimationUtils.loadAnimation(context, R.anim.wave)}
+    private val anim2 by lazy {AnimationUtils.loadAnimation(context, R.anim.wave_ver2)}
     private val goldKeyViewModel by lazy {
         ViewModelProvider(this).get(GoldKeyViewModel::class.java)
     }
@@ -25,20 +27,35 @@ class GoldKeyFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gold_key, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = goldKeyViewModel
+        startAnimation()
 
-        val anim = AnimationUtils.loadAnimation(context, R.anim.wave)
-        val anim2 = AnimationUtils.loadAnimation(context, R.anim.wave_ver2)
 
+
+
+        return binding.root
+    }
+
+    fun startAnimation() {
         binding.heart1.startAnimation(anim)
         binding.heart2.startAnimation(anim)
         binding.heart3.startAnimation(anim)
 
         binding.pickCardTv.startAnimation(anim2)
-
-
-        return binding.root
     }
+
+//    override fun onLongClick(v: View?): Boolean {
+//        when(v?.id) {
+//            R.id.back_side -> {
+//                goldKeyViewModel.onLongClickOn()
+//                return true
+//            }
+//            else -> {return false}
+//        }
+//    }
+
+
 }
