@@ -12,41 +12,108 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/back_side"
-            android:onClick="@{()->viewModel.onClickBackSide()}"
-            app:visibilityToggle="@{viewModel.toggle}"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:src="@drawable/soju_card_final3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+        android:layout_height="match_parent"
+        android:background="@color/back_pink">
 
 
-        <TextView
 
-            android:id="@+id/front_side"
-            android:text="@{viewModel.word}"
-            android:onClick="@{()->viewModel.onClickFrontSide()}"
-            app:visibilityToggle="@{viewModel.toggle}"
-            tools:text="애인 이름으로 [삼행시] 하고\n 과반수 동의 안되면 마시기"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textSize="25dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:flag="@{false}"
+                android:onClick="@{()->viewModel.onClickFrontSide()}"
+                app:visibilityToggle="@{viewModel.toggle}"
+                tools:layout_editor_absoluteX="2dp">
+
+                <TextView
+                    android:id="@+id/front_side"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="@{viewModel.word}"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    tools:text="애인 이름으로 [삼행시] 하고\n 과반수 동의 안되면 마시기" />
+
+                <ImageView
+                    android:id="@+id/heart3"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/heart3"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.129"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.124" />
+
+                <ImageView
+                    android:id="@+id/heart2"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/heart2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.916"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.247" />
+
+                <ImageView
+                    android:id="@+id/heart1"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/heart1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.276"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.824" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:onClick="@{()->viewModel.onClickBackSide()}"
+            app:visibilityToggle="@{viewModel.toggle}"
+            android:flag="@{true}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/back_side"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@drawable/lovecard"
+                android:scaleType="fitXY"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/pickCard_tv"
+                android:background="@drawable/pickme_button"
+                android:textStyle="italic|bold"
+                android:gravity="center"
+                android:text="커플 카드를 뽑아보세요."
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
